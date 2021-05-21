@@ -29,18 +29,18 @@ void HTHPlus::imprimirPeliculasG() {
 	for(Pelicula* pe: peliculas) {
 		string genero= "";
 		genero= pe->getGenero();
-		if(peliculas.empty()){//Primera vez
+		if(peliculas.empty()) { //Primera vez
 			generos.push_back(genero);
-		}else{
+		} else {
 			int iguales=0;
-			for(int j=0;j<generos.size();j++){
+			for(int j=0; j<generos.size(); j++) {
 				int res = generos[j].compare(genero);
-				if(res==0){
+				if(res==0) {
 					iguales++;
 				}
 			}
-			
-			if(iguales==0){//Si no encontro iguales entonces agrega el genero
+
+			if(iguales==0) { //Si no encontro iguales entonces agrega el genero
 				generos.push_back(genero);
 			}
 		}
@@ -57,10 +57,10 @@ void HTHPlus::imprimirPeliculasG() {
 
 			int valoracion=0;
 			valoracion=pe->getValoracion();
-			
+
 			string genero="";
 			genero=pe->getGenero();
-			
+
 			int res = g.compare(genero);
 			if(res == 0) {
 				cout<<titulo<<" - "<<director<<" "<<valoracion<<"/5"<<endl;//imprimir pelicula
@@ -98,22 +98,24 @@ void HTHPlus::modificar(int pos, int op) {
 }
 
 void HTHPlus::deletePelicula(int pos) { //Delete pelicula
-	delete peliculas[pos];
 	peliculas.erase(peliculas.begin()+pos);
-	
 }
 
 void HTHPlus::sortValoracion() {
 
-	for(int i=5; i>0; i++) {
+
+	for(int j=5; j>=0; j--) {
 		for(Pelicula* pe:peliculas) {
-			int valActual=0;
+			int valActual=5;
 			valActual=pe->getValoracion();
-			if(valActual==i) {
+			if(valActual==j) {
 				pe->toString();
 			}
+			valActual--;
 		}
 	}
+
+
 
 }//Fin sortValoracion
 
@@ -129,5 +131,4 @@ void HTHPlus::buscarPelicula(string palabra) {
 }
 
 HTHPlus::~HTHPlus() {
-
 }
