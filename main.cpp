@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
 				cout<<"\n";
 				var->listarPeliculas();
 				int pos=0;
-				cout<<"Ingrese la posicion de la pelicula que quiere mejorar: ";
+				cout<<"Ingrese la posicion de la pelicula que quiere modificar: ";
 				cin>>pos;
 				var->modificar(pos, opMod);
 				break;
@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
 			case 3: {//eliminar pelicula
 				var->listarPeliculas();
 				int pos=0;
-				cout<<"Ingrese la posicion de la pelicula que quiere mejorar: ";
+				cout<<"Ingrese la posicion de la pelicula que quiere eliminar: ";
 				cin>>pos;
 				var->deletePelicula(pos);
 				break;
@@ -62,8 +62,10 @@ int main(int argc, char** argv) {
 			}//Fin caso 4
 
 			case 5: {
-				string palabra=NULL;
+				cin.ignore();
+				string palabra="";
 				cout<<"Ingrese el titulo de la pelicula que quioere buscar: "<<endl;
+				getline(cin,palabra);
 				var->buscarPelicula(palabra);
 				break;
 			}//Fin caso 5

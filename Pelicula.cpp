@@ -6,6 +6,9 @@
 using namespace std;
 Pelicula::Pelicula()
 {
+	titulo="";
+	director="";
+	genero="";
 	int valoracion=0;
 }
 
